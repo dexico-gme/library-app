@@ -30,8 +30,13 @@ console.log(myLibrary);
 // document.getElementById("table").insertRow(-1);
 function displayBook() {
   for (let x = 0; x < myLibrary.length; x++) {
+    let title = myLibrary[x].title;
+    let titleTrim = title.split(" ").join("");
+    console.log(typeof titleTrim);
+    this.title = title;
+    this.titleTrim = titleTrim;
     document.getElementById("table").innerHTML += `
-<tr><td>${myLibrary[x].title}</td>
+<tr id="${titleTrim}"><td>${myLibrary[x].title}</td>
 <td>${myLibrary[x].author}</td>
 <td>${myLibrary[x].pages}</td>
 <td>${myLibrary[x].read}</td>
@@ -56,6 +61,17 @@ console.log(formAuthor);
 
 // let book = new Book(formTitle);
 
+displayBook();
+
+function removeBook(x) {
+  console.log(x);
+  // let elementIndex = document.getElementById(`"${row}"`);
+  // elementIndex.remove();
+  // const table = document.getElementById("table");
+  // table.deleteRow(elementIndex);
+  console.log("done");
+}
+
 function hi() {
   let title = form.elements["title"].value;
   let author = form.elements["author"].value;
@@ -66,19 +82,13 @@ function hi() {
   addBookToLibrary(book3);
   let position = myLibrary.length - 1;
   let libLength = myLibrary.length;
+  let titleTrim = title.split(" ").join("");
+  console.log(titleTrim);
   document.getElementById("table").innerHTML += `
-<tr><td>${title}</td>
+<tr id="${titleTrim}"><td id="Row">${title}</td>
 <td>${author}</td>
 <td>${pages}</td>
 <td>${read}</td>
-<td><button id="row${position}" onclick="removeBook(row${position})">remove book</button></td>
+<td><button id="row${position}" onclick="removeBook(${titleTrim})">remove book</button></td>
 </tr>`;
-}
-
-displayBook();
-
-function removeBook(row) {
-  console.log(row);
-  // document.getElementById("table").deleteRow(1);
-  console.log("done);
 }
