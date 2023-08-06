@@ -3,4 +3,21 @@ th,
 td {
   border: 1px solid black;
   border-collapse: collapse;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
+  border-radius: 10%;
+  border: 0px;
+  transition: 0.5s;
+}
+
+button:hover {
+  background-color: rgb(218, 218, 218);
+  /* color: white; */
+  transition: 0.5s;
+  cursor: pointer;
 }

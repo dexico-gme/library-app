@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
     <script defer src="book.js"></script>
     <title>Document</title>
   </head>
   <body>
+    <div id="topbar">
+      <h1>Library</h1>
+    </div>
     <div>
       <form name="submitBook" id="submitBook">
         <label for="title">Title:</label><br />
@@ -24,17 +34,9 @@
       </form>
       <button type="submit" id="addABook" value="submit">Add a Book</button>
     </div>
-    <p id="output">output</p>
+
     <div>
-      <table id="table">
-        <thread>
-          <th>Book</th>
-          <th>Author</th>
-          <th>Pages</th>
-          <th>Read</th>
-        </thread>
-        <tbody></tbody>
-      </table>
+      <table id="table"></table>
     </div>
   </body>
 </html>

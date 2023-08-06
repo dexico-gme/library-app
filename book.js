@@ -29,47 +29,48 @@ console.log(myLibrary);
 
 // document.getElementById("table").insertRow(-1);
 function displayBook() {
+  let table = document.getElementById("table");
+  table.innerHTML = `
+  <th>Book</th>
+  <th>Author</th>
+  <th>Pages</th>
+  <th>Read</th>`;
   for (let x = 0; x < myLibrary.length; x++) {
     let title = myLibrary[x].title;
     let titleTrim = title.split(" ").join("");
     console.log(typeof titleTrim);
     this.title = title;
     this.titleTrim = titleTrim;
-    document.getElementById("table").innerHTML += `
-<tr id="${titleTrim}"><td>${myLibrary[x].title}</td>
-<td>${myLibrary[x].author}</td>
-<td>${myLibrary[x].pages}</td>
-<td>${myLibrary[x].read}</td>
-<td><button id="row${x}" onclick="removeBook(row${x})">remove book</button></td>
-</tr>`;
+    console.log(`title trim: ${titleTrim}`);
+    // let table = document.getElementById("table");
+    const row = document.createElement("tr");
+    const cell0 = document.createElement("td");
+    const cell1 = document.createElement("td");
+    const cell2 = document.createElement("td");
+    const cell3 = document.createElement("td");
+    const cell4 = document.createElement("td");
+    table.appendChild(row);
+    table.appendChild(cell0).innerHTML = `${myLibrary[x].title}`;
+    table.appendChild(cell1).innerHTML = `${myLibrary[x].author}`;
+    table.appendChild(cell2).innerHTML = `${myLibrary[x].pages}`;
+    table.appendChild(cell3).innerHTML = `${myLibrary[x].read}`;
+    table.appendChild(
+      cell4
+    ).innerHTML = `<button id="row${x}" onclick="removeBook(${x})">remove book</button>`;
   }
 }
-
-console.log("done");
 
 document.getElementById("addABook").addEventListener("click", hi);
 
 const form = document.getElementById("submitBook");
 
-let titlePrint = form.elements["title"].value;
-
-// let titleVal = formTitle.value;
-// console.log(titleVal);
-
-let formAuthor = document.getElementById("author").value;
-console.log(formAuthor);
-
-// let book = new Book(formTitle);
-
 displayBook();
 
 function removeBook(x) {
   console.log(x);
-  // let elementIndex = document.getElementById(`"${row}"`);
-  // elementIndex.remove();
-  // const table = document.getElementById("table");
-  // table.deleteRow(elementIndex);
-  console.log("done");
+  myLibrary.splice(x, 1);
+  console.log(myLibrary);
+  displayBook();
 }
 
 function hi() {
@@ -80,15 +81,5 @@ function hi() {
   console.log(`${title}, ${author}, ${pages}, ${read}`);
   let book3 = new Book(title, author, pages, read);
   addBookToLibrary(book3);
-  let position = myLibrary.length - 1;
-  let libLength = myLibrary.length;
-  let titleTrim = title.split(" ").join("");
-  console.log(titleTrim);
-  document.getElementById("table").innerHTML += `
-<tr id="${titleTrim}"><td id="Row">${title}</td>
-<td>${author}</td>
-<td>${pages}</td>
-<td>${read}</td>
-<td><button id="row${position}" onclick="removeBook(${titleTrim})">remove book</button></td>
-</tr>`;
+  displayBook();
 }
