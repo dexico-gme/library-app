@@ -34,7 +34,8 @@ function displayBook() {
   <th>Book</th>
   <th>Author</th>
   <th>Pages</th>
-  <th>Read</th>`;
+  <th>Read</th>
+  <th>Remove</th>`;
   for (let x = 0; x < myLibrary.length; x++) {
     let title = myLibrary[x].title;
     let titleTrim = title.split(" ").join("");
@@ -60,7 +61,7 @@ function displayBook() {
   }
 }
 
-document.getElementById("addABook").addEventListener("click", hi);
+// document.getElementById("addABook").addEventListener("click", hi);
 
 const form = document.getElementById("submitBook");
 
@@ -82,4 +83,8 @@ function hi() {
   let book3 = new Book(title, author, pages, read);
   addBookToLibrary(book3);
   displayBook();
+}
+
+function openTheForm() {
+  document.getElementById("popupForm").style.display = "block";
 }

@@ -10,15 +10,20 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Quicksand:wght@600&display=swap"
+      rel="stylesheet"
+    />
 
     <script defer src="book.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <div id="topbar">
+    <div class="topbar">
       <h1>Library</h1>
     </div>
-    <div>
+    <div class="add-book"><p id="add-book-btn">+</p></div>
+    <!-- <div>
       <form name="submitBook" id="submitBook">
         <label for="title">Title:</label><br />
         <input type="text" id="title" name="title" /><br />
@@ -33,9 +38,8 @@
         <input type="text" id="read" name="read" /><br />
       </form>
       <button type="submit" id="addABook" value="submit">Add a Book</button>
-    </div>
-
-    <div>
+    </div> -->
+    <div class="book-table">
       <table id="table"></table>
     </div>
   </body>

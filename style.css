@@ -1,8 +1,24 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+}
+
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 10px;
   border-collapse: collapse;
+  /* border-spacing: 0px; */
   font-family: "Open Sans", sans-serif;
   text-align: center;
   padding: 1rem;
@@ -10,14 +26,59 @@ td {
 
 button {
   font-family: "Open Sans", sans-serif;
-  border-radius: 10%;
+  border-radius: 6%;
+  padding: 0.2rem;
   border: 0px;
   transition: 0.5s;
+  background-color: rgb(225, 225, 225);
 }
 
 button:hover {
-  background-color: rgb(218, 218, 218);
+  background-color: rgb(210, 210, 210);
   /* color: white; */
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* th:first-of-type {
+  border-top-left-radius: 10%;
+}
+
+th:last-of-type {
+  border-top-right-radius: 10%;
+}
+tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 10px;
+}
+tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 10px;
+} */
+.book-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-book {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+#add-book-btn {
+  width: 25px;
+  height: 25px;
+  /* border: 1px solid black; */
+  background-color: rgb(220, 220, 220);
+  border-radius: 50%;
+  text-align: center;
+  transition: 0.5s;
+}
+
+#add-book-btn:hover {
+  background-color: rgb(205, 205, 205);
+  /* color: white; */
+  color: white;
   transition: 0.5s;
   cursor: pointer;
 }
