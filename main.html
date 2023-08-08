@@ -22,22 +22,32 @@
     <div class="topbar">
       <h1>Library</h1>
     </div>
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
     <div class="add-book"><p id="add-book-btn">+</p></div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form name="submitBook" id="submitBook">
+          <label for="title">Title:</label><br />
+          <input type="text" id="title" name="title" /><br />
+
+          <label for="author">Author:</label><br />
+          <input type="text" id="author" name="author" /><br />
+
+          <label for="pages">Pages:</label><br />
+          <input type="text" id="pages" name="pages" /><br />
+
+          <label for="read">Read:</label><br />
+          <input type="text" id="read" name="read" /><br />
+        </form>
+        <button type="submit" id="addABook" value="submit">Add a Book</button>
+      </div>
+    </div>
     <!-- <div>
-      <form name="submitBook" id="submitBook">
-        <label for="title">Title:</label><br />
-        <input type="text" id="title" name="title" /><br />
-
-        <label for="author">Author:</label><br />
-        <input type="text" id="author" name="author" /><br />
-
-        <label for="pages">Pages:</label><br />
-        <input type="text" id="pages" name="pages" /><br />
-
-        <label for="read">Read:</label><br />
-        <input type="text" id="read" name="read" /><br />
-      </form>
-      <button type="submit" id="addABook" value="submit">Add a Book</button>
+      
     </div> -->
     <div class="book-table">
       <table id="table"></table>
