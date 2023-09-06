@@ -14,7 +14,7 @@ function addBookToLibrary(Book) {
   myLibrary.push(Book);
 }
 
-const book1 = new Book("the hobbit", "tolkein", "294", "no");
+const book1 = new Book("the hobbit", "tolkein", "294", "yes");
 const book2 = new Book("catcher in the rye", "jd salinger", "180", "no");
 
 console.log(book1.info());
@@ -27,7 +27,6 @@ addBookToLibrary(book2);
 
 console.log(myLibrary);
 
-// document.getElementById("table").insertRow(-1);
 function displayBook() {
   let table = document.getElementById("table");
   table.innerHTML = `
@@ -38,6 +37,7 @@ function displayBook() {
   <th>Remove</th>`;
   for (let x = 0; x < myLibrary.length; x++) {
     let title = myLibrary[x].title;
+
     let titleTrim = title.split(" ").join("");
     console.log(typeof titleTrim);
     this.title = title;
@@ -54,7 +54,9 @@ function displayBook() {
     table.appendChild(cell0).innerHTML = `${myLibrary[x].title}`;
     table.appendChild(cell1).innerHTML = `${myLibrary[x].author}`;
     table.appendChild(cell2).innerHTML = `${myLibrary[x].pages}`;
-    table.appendChild(cell3).innerHTML = `${myLibrary[x].read}`;
+    table.appendChild(
+      cell3
+    ).innerHTML = `<button id="read" onclick="readBtn(${x})">${myLibrary[x].read}</button>`;
     table.appendChild(
       cell4
     ).innerHTML = `<button id="row${x}" onclick="removeBook(${x})">remove book</button>`;
@@ -83,6 +85,7 @@ function hi() {
   let book3 = new Book(title, author, pages, read);
   addBookToLibrary(book3);
   displayBook();
+  //modal.style.display = "none";
 }
 
 function openTheForm() {
@@ -114,3 +117,20 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+document.getElementById("read").addEventListener("click", readBtn);
+
+function readBtn(y) {
+  if (myLibrary[y].read == "yes") {
+    myLibrary[y].read = "no";
+    console.log("no");
+    console.log(myLibrary);
+  } else {
+    myLibrary[y].read = "yes";
+    console.log("yes");
+    console.log(myLibrary);
+  }
+  displayBook();
+  console.log(myLibrary);
+  console.log("fun!");
+}
